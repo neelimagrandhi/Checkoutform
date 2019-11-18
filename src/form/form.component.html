@@ -1,0 +1,164 @@
+<div class="container ">
+    <div class="header">
+        <img src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" width=80px height=70px/>
+    <h2 class="py-1">Checkout form</h2>
+    <p class="px-5" style="font-size:1.25rem;font-weight: 300;">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+   </div>
+   <div class="row px-5 py-3">
+       <div class="col-md-8">
+            <h3>Billing address</h3>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label >First name</label>
+                    <input type="text" class="form-control" [(ngModel)]="firstname" />
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Last name</label>
+                  <input type="text" class="form-control" [(ngModel)]="lastname"/>
+                </div>
+            </div>
+            <div class="form-group">
+              <label >Username</label>
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                       <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                      </div>
+                     <input type="text" class="form-control" placeholder="Username"  [(ngModel)]="username"/>
+                  </div>
+            </div>
+               
+              <div class="form-group">
+                <label>Email(Optional)</label>
+                <input type="email" class="form-control" placeholder="you@example.com" [(ngModel)]="email"/>
+              </div>
+              <div class="form-group">
+                <label>Address</label>
+                <input type="text" class="form-control" placeholder="1234 Main St"  [(ngModel)]="address1"/>
+              </div>
+              <div class="form-group">
+                <label>Address2(Optional)</label>
+                <input type="email" class="form-control" placeholder="Apartment or Suite"  [(ngModel)]="address2"/>
+              </div>
+              <div class="form-row" style="border-bottom: 1px solid #ddd">
+                <div class="form-group col-md-6">
+                  <label>Country</label>
+                  <select class="custom-select" placeholder="Choose..." [(ngModel)]="country">
+                    <option selected>Choose...</option>
+                    <option>USA</option>
+                    <option>UK</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label>State</label>
+                  <select class="custom-select" [(ngModel)]="state">
+                    <option selected>Choose...</option>
+                    <option>Ap</option>
+                    <option>TS</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label>Zip</label>
+                  <input type="text" class="form-control" [(ngModel)]="zip">
+                </div>
+              </div>
+                <div class="form-group py-4" style="border-bottom:1px solid #ddd">
+                    <div class="custom-control custom-checkbox">
+                       <input type="checkbox" class="custom-control-input" id="customCheck1" [(ngModel)]="check1">
+                       <label class="custom-control-label" For="customCheck1" >Shipping address is the same as my billing address</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                       <input type="checkbox" class="custom-control-input" id="customCheck2" [(ngModel)]="check">
+                       <label class="custom-control-label" For="customCheck2">Save this information for next time
+                    </label>
+                    </div>
+                  </div>
+              <div class="form-group">
+                <h3>Payment</h3>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="creditcard" [(ngModel)]="cards">
+                  <label class="custom-control-label" for="customRadio1">Creditcard</label>
+                </div>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="debitcard" [(ngModel)]="cards">
+                      <label class="custom-control-label" for="customRadio2">Debitcard</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" value="paypal" [(ngModel)]="cards">
+                      <label class="custom-control-label" for="customRadio3">Paypal</label>
+                    </div>
+                    
+              </div>
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label >Name on card</label>
+                      <input type="text" class="form-control" placeholder=""  [(ngModel)]="cardname"/>
+                      <small>Full name as displayed on card</small>
+                  </div>
+                  
+                  <div class="form-group col-md-6">
+                    <label>Credit card number</label>
+                    <input type="text" class="form-control"  [(ngModel)]="cardnumber"/>
+                  </div>
+              </div>
+              <div class="form-row"style="border-bottom:1px solid #ddd">
+                  <div class="form-group col-md-3">
+                      <label >Expiration</label>
+                      <input type="text" class="form-control" [(ngModel)]="expiration"/>
+                  </div>
+                  
+                  <div class="form-group col-md-3">
+                    <label>CVV</label>
+                    <input type="text" class="form-control" [(ngModel)]="cvv"/>
+                  </div>
+              </div>
+              <button type="button" class="btn btn-primary btn-lg btn-block" (click)="goto()">Continue to checkout</button>
+            </div>
+       <div class="col-md-4">
+         <div class="list-header">
+           <h3 class="text-secondary">Your cart</h3>
+           <span class="badge badge-pill badge-secondary" style="height:25px;width:30px;font-size: 16px;"><b>3</b></span>
+         </div>
+         <ul class="list-group mt-3">
+            <li class="list-group-item disabled">
+              <span>Product name<br>
+                <small>Brief description</small></span>
+              <span>$12</span>
+            </li>
+            <li class="list-group-item">
+                <span>Second product<br>
+                  <small>Brief description</small></span>
+                <span>$8</span>
+            </li>
+            <li class="list-group-item">
+                <span>Third item<br>
+                  <small>Brief description</small></span>
+                <span>$5</span>
+            </li>
+            <li class="list-group-item bg-light text-success">
+                <span>Promo code<br>
+                  <small>EXAMPLECODE</small></span>
+                <span>-$5</span>
+            </li>
+            <li class="list-group-item">
+                <span>Total(USD)<br></span>
+                <span>$20</span>
+            </li>
+            <li class="list-group-item mt-3">
+                    <input type="text" class="form-control" placeholder="Promo code">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary bg-secondary text-white" type="button">Redeem</button>
+                    </div>
+            </li>
+          </ul>
+       </div>
+   </div>
+   <div class="footer text-center p-5">
+        <span>&copy;2017-2018 Company Name</span>
+        <ul class="nav justify-content-center pt-2 text-primary">
+          <li class="nav-item">Privacy</li>
+          <li class="nav-item px-3">Terms</li>
+          <li class="nav-item">Conditions</li>
+        </ul>
+   </div>
+</div>
+    
